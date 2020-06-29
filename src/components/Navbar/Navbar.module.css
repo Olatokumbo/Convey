@@ -1,0 +1,10 @@
+.container{
+    background-color: #4E4E4E !important;
+    padding: 0.5rem 1rem !important;
+    margin-bottom: 2rem !important;
+    width: 100% !important;
+}
+.brand{
+    display: flex !important;
+    flex-direction: column !important;
+}

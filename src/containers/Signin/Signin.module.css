@@ -1,0 +1,118 @@
+.main{
+    display: flex;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    height: 100%;
+    /* overflow: hidden; */
+}
+    @media only screen and (max-height: 520px) {
+      .main{
+        display: flex;
+        height: fit-content;
+        margin: auto;
+      }
+        }
+
+.left{
+    width: 15rem;
+    flex:1;
+    background-image: url(../../assets/images/bg.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.right{
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    padding: 2rem;
+    margin-top: 5rem;
+    /* overflow: hidden; */
+
+    
+}
+
+.logo{
+   display: none;
+}
+.mainContent{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+    width: 23rem;
+    padding: 2rem;
+    margin: auto;
+}
+
+.header{
+    align-self: flex-start;
+    font-weight: 600 !important;
+    font-size: 2.5rem !important;
+    margin: 1.5rem 0 !important;
+}
+.googleBtn{
+    width: inherit;
+    padding: 0.9rem 1rem !important;
+    background-color: #4285F4 !important;
+}
+
+.divider{
+    margin: 1rem !important;
+    align-self: center !important;
+}
+.form{
+    /* background-color: rgba(0, 128, 128, 0.493); */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: inherit;
+    
+    
+}
+.input{
+    margin: 0.5rem 0 !important;
+}
+.input:nth-child(2){
+    margin-bottom: 2rem !important;
+}
+.signin{
+    background-color: #201F3E !important;
+    color: white !important;
+    padding: 0.5rem 1rem !important;
+}
+
+@media only screen and (max-width: 773px) {
+.left{
+    display: none;
+}
+.right{
+    padding: 0;
+    margin: 1rem;
+}
+.mainContent{
+    padding: 0;
+
+}
+.logo{
+    display: unset;
+    width: 4rem;
+    height: auto;
+    /* align-self: start; */
+    margin: 0.2rem 0;
+}
+}
+
+@media only screen and (max-width: 390px) {
+    .mainContent{
+        width: unset;
+    }
+    }
