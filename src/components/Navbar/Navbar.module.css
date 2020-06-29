@@ -3,6 +3,7 @@
     padding: 0.5rem 1rem !important;
     margin-bottom: 2rem !important;
     width: 100% !important;
+    overflow: hidden !important;
 }
 .toolbar{
     display: flex !important;
@@ -13,6 +14,10 @@
     flex-direction: row !important;
     align-items: center !important;
 }
+.logo{
+    height: 2rem;
+    width: auto;
+}
 
 .searchInput{
     background-color: rgba(148, 148, 148, 0.54) !important;
@@ -22,6 +27,7 @@
     border: none;
     padding: 0.8rem 1rem;
     outline: none;
+    width: auto;
 }
 ::placeholder { /* Most modern browsers support this now. */
     color:    #e0e0e0;
@@ -48,4 +54,24 @@
     width: auto;
     border-radius: 20px;
     margin: 2px;
+}
+
+@media only screen and (max-width: 520px) {
+    .profileName{
+        display: none;
+    }
+    .container{
+        padding:  0.5rem 0 !important;
+    }
+      }
+@media only screen and (max-width: 320px){
+    .searchInput{
+        width: -webkit-fill-available;
+    }
+    .brand{
+        width: 11rem;
+    }
+    .toolbar{
+         /* justify-content: space-evenly !important; */
+    }
 }
