@@ -1,5 +1,6 @@
 import React from "react";
 import {TextField, Button, Typography} from "@material-ui/core";
+import {Link} from "react-router-dom";
 import style from "./Signin.module.css";
 import logo from "../../assets/images/logo.png"
 const Signin = () => {
@@ -17,7 +18,7 @@ const Signin = () => {
           <TextField className={style.input} type="password" label="Password" variant="outlined" size="medium"/>
           <Button className={style.signin} variant="contained">Sign in</Button>
         </form>
-        <Typography variant='body2' style={{textAlign: "center"}}>Don't have an Account? Sign up</Typography>
+        <Typography variant='body2' style={{textAlign: "center"}}>Don't have an Account? <Link className={style.a} to="/signup">Sign up</Link></Typography>
         </div>
       </div>
     </div>
