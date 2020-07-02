@@ -1,10 +1,19 @@
-import React from "react";
-import { AppBar, Toolbar, Typography } from "@material-ui/core";
+import React, {useState} from "react";
+import { AppBar, Toolbar, Typography, Menu, MenuItem} from "@material-ui/core";
 import style from "./Navbar.module.css";
 import profile from "../../assets/images/davidO.jpg";
 import logo from "../../assets/images/logo.png";
 import NotificationsIcon from '@material-ui/icons/Notifications';
 const Navbar = () => {
+  const [anchorEl, setAnchorEl] = useState(null);
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
   return (
     <AppBar position="static" className={style.container}>
       <Toolbar variant="dense" className={style.toolbar}>
@@ -25,8 +34,21 @@ const Navbar = () => {
             >
               David King
             </Typography>
-            <img className={style.profileImage} src={profile} alt="profile" />
-          </div>
+            <img className={style.profileImage} src={profile} alt="profile" onClick={handleClick} />
+            <Menu
+              id="simple-menu"
+              anchorEl={anchorEl}
+              getContentAnchorEl={null}
+              anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+              transformOrigin={{ vertical: "top", horizontal: "center" }}
+              open={Boolean(anchorEl)}
+              onClose={handleClose}
+              >
+             <MenuItem onClick={handleClose}>Profile</MenuItem>
+             <MenuItem onClick={handleClose}>Settings</MenuItem>
+             <MenuItem onClick={handleClose}>Logout</MenuItem>
+           </Menu>
+            </div>
         </div>
       </Toolbar>
     </AppBar>

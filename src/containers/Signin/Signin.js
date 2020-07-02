@@ -12,7 +12,7 @@ const Signin = ({login}) => {
       <div className={style.right}>
       <div className={style.mainContent}>
       <img className={style.logo} src={logo} alt="logo"/>
-      <Typography className={style.header} color="textSecondary" variant="h2">Sign in</Typography>
+      <Typography className={style.header} color="textSecondary" variant="h2">Sign In</Typography>
       <Button className={style.googleBtn} variant="contained" color="primary" onClick={login}>Sign in with Google</Button>
       <Typography className={style.divider} variant="body1" color="textSecondary">Or</Typography>
         <form className={style.form}> 
