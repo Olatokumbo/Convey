@@ -1,7 +1,7 @@
 import * as actionTypes from "../actions/actionTypes";
 const initialState = {
   authError: null,
-  uid: "aPbEKfdZZ5RanQS7zr09NNSVpIH3",
+  uid: null,
 };
 
 const authReducer = (state = initialState, action) => {
@@ -40,13 +40,13 @@ const authReducer = (state = initialState, action) => {
       console.log("LOGIN USER");
       return {
         ...state,
-        user: action.uid,
+        uid: action.uid,
       };
     case actionTypes.LOGOUT_USER:
       console.log("LOGOUT USER");
       return {
         ...state,
-        user: null,
+        uid: null,
       };
     default:
       return state;
