@@ -32,3 +32,14 @@ export const startLogout = () =>{
         })
     } 
 }
+
+export const loginUser = (uid) =>{
+    return(dispatch)=>{
+        dispatch({type: "LOGIN_USER", uid})
+    }
+}
+export const logoutUser = () =>{
+    return(dispatch)=>{
+        dispatch({type: "LOGOUT_USER"})
+    }
+}

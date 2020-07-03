@@ -1,5 +1,7 @@
 export{
     startLogin,
     startSignup,
-    startLogout
+    startLogout,
+    loginUser,
+    logoutUser
 } from "./auth";

@@ -35,7 +35,7 @@ const Signup = ({signUp, authError}) => {
           <Button type="submit" className={style.signup} variant="contained">Sign up</Button>
         </form>
         <Typography variant="body2" color="secondary" align="center">{authError}</Typography>
-        <Typography variant='body2' style={{textAlign: "center"}}>Already an Account? <Link className={style.a} to="/login">Sign in</Link></Typography>
+        <Typography variant='body2' style={{textAlign: "center"}}>Already an Account? <Link className={style.a} to="/">Sign in</Link></Typography>
         </div>
       </div>
     </div>

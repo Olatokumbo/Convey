@@ -4,19 +4,24 @@ import App from "./App";
 import {firebase} from "./firebase/firebase";
 import {Provider} from "react-redux";
 import {createStore, applyMiddleware, combineReducers} from "redux";
-import {authReducer} from "./store/reducers";
 import thunk from "redux-thunk";
+import {authReducer} from "./store/reducers";
+import * as actionCreator from "./store/actions";
+
+
 const rootReducer =combineReducers({
     auth: authReducer
 }) 
 const store = createStore(rootReducer, applyMiddleware(thunk));
-ReactDOM.render(<Provider store={store}><App/></Provider>, document.getElementById("root"));
 
 firebase.auth().onAuthStateChanged((user)=>{
+    ReactDOM.render(<Provider store={store}><App/></Provider>, document.getElementById("root"));
     if(user){
-        console.log("Logged in");
+        console.log(user.uid);
+        store.dispatch(actionCreator.loginUser(user.uid));
     }
     else{
-        console.log("Logged out");
+        console.log("logout");
+        store.dispatch(actionCreator.logoutUser());
     }
 });
