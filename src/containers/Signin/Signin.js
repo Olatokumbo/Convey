@@ -5,7 +5,13 @@ import style from "./Signin.module.css";
 import logo from "../../assets/images/logo.png";
 import {connect} from "react-redux";
 import * as actionCreator from "../../store/actions";
-const Signin = ({login}) => {
+const Signin = ({login, authError}) => {
+  const signInForm = (e) =>{
+      e.preventDefault();
+      let email = e.target.elements.email.value;
+      let password = e.target.elements.password.value;
+      login({email, password});
+  }
   return (
     <div className={style.main}>
       <div className={style.left}></div>
@@ -13,13 +19,14 @@ const Signin = ({login}) => {
       <div className={style.mainContent}>
       <img className={style.logo} src={logo} alt="logo"/>
       <Typography className={style.header} color="textSecondary" variant="h2">Sign In</Typography>
-      <Button className={style.googleBtn} variant="contained" color="primary" onClick={login}>Sign in with Google</Button>
+      <Button className={style.googleBtn} variant="contained" color="primary" disabled>Sign in with Google</Button>
       <Typography className={style.divider} variant="body1" color="textSecondary">Or</Typography>
-        <form className={style.form}> 
-          <TextField className={style.input} type="text" label="Username" variant="outlined" size="medium" />
-          <TextField className={style.input} type="password" label="Password" variant="outlined" size="medium"/>
-          <Button className={style.signin} variant="contained">Sign in</Button>
+        <form className={style.form} onSubmit={signInForm}> 
+          <TextField name="email" className={style.input} type="text" label="Email" variant="outlined" size="medium" />
+          <TextField name="password" className={style.input} type="password" label="Password" variant="outlined" size="medium"/>
+          <Button type="submit" className={style.signin} variant="contained">Sign in</Button>
         </form>
+          <Typography variant="body2" color="secondary" align="center">{authError}</Typography>
         <Typography variant='body2' style={{textAlign: "center"}}>Don't have an Account? <Link className={style.a} to="/signup">Sign up</Link></Typography>
         </div>
       </div>
@@ -27,10 +34,16 @@ const Signin = ({login}) => {
   );
 };
 
+const mapStateToProps = (state) =>{
+  return{
+    authError: state.auth.authError
+  }
+}
+
 const mapDispatchToProps = (dispatch) =>{
     return{
-      login: () => dispatch(actionCreator.startLogin())
+      login: (credentials) => dispatch(actionCreator.startLogin(credentials))
     }
 }
 
-export default connect(null, mapDispatchToProps)(Signin);
+export default connect(mapStateToProps, mapDispatchToProps)(Signin);

@@ -4,7 +4,10 @@ import style from "./Navbar.module.css";
 import profile from "../../assets/images/davidO.jpg";
 import logo from "../../assets/images/logo.png";
 import NotificationsIcon from '@material-ui/icons/Notifications';
-const Navbar = () => {
+import * as actionCreator from "../../store/actions";
+import {connect} from "react-redux";
+
+const Navbar = ({logout}) => {
   const [anchorEl, setAnchorEl] = useState(null);
 
   const handleClick = (event) => {
@@ -46,7 +49,7 @@ const Navbar = () => {
               >
              <MenuItem onClick={handleClose}>Profile</MenuItem>
              <MenuItem onClick={handleClose}>Settings</MenuItem>
-             <MenuItem onClick={handleClose}>Logout</MenuItem>
+             <MenuItem onClick={logout}>Logout</MenuItem>
            </Menu>
             </div>
         </div>
@@ -55,4 +58,10 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+const mapDispatchToProps = (dispatch) =>{
+  return{
+    logout: () => dispatch(actionCreator.startLogout())
+  }
+};
+
+export default connect(null, mapDispatchToProps)(Navbar);

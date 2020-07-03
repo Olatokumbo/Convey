@@ -1,3 +1,5 @@
 export{
-    startLogin
+    startLogin,
+    startSignup,
+    startLogout
 } from "./auth";
