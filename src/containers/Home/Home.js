@@ -1,8 +1,8 @@
 import React from "react";
 import Navbar from "../../components/Navbar/Navbar";
-import { Card, CardContent, Grid, Typography } from "@material-ui/core";
+import { Grid } from "@material-ui/core";
 import ProjectCard from "../../components/ProjectCard/ProjectCard";
-import NotficationCard from "../../components/NotificationCard/NotificationCard"
+import NotificationCard from "../../components/NotificationCard/NotificationCard";
 import style from "./Home.module.css";
 const Home = () => {
   console.log("Hello");
@@ -11,11 +11,11 @@ const Home = () => {
       <Navbar />
       <Grid container className={style.container} justify="center">
         <Grid item container className={style.left} xs={12} md={12}>
-          <ProjectCard/>
-          <ProjectCard/>
+          <ProjectCard />
+          <ProjectCard />
         </Grid>
         <Grid item container className={style.right} xs={12} md={12}>
-          <NotficationCard/>
+          <NotificationCard />
         </Grid>
       </Grid>
     </div>

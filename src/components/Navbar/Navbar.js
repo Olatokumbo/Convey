@@ -3,8 +3,8 @@ import { AppBar, Toolbar, Typography, Menu, MenuItem} from "@material-ui/core";
 import style from "./Navbar.module.css";
 import profile from "../../assets/images/davidO.jpg";
 import logo from "../../assets/images/logo.png";
-import ControlPointTwoToneIcon from '@material-ui/icons/ControlPointTwoTone';
 import * as actionCreator from "../../store/actions";
+import AddProjectForm from "../AddProjectForm/AddProjectForm";
 import {connect} from "react-redux";
 
 const Navbar = ({logout}) => {
@@ -28,7 +28,7 @@ const Navbar = ({logout}) => {
           />
         </div>
         <div className={style.utility}>
-            <ControlPointTwoToneIcon/>
+              <AddProjectForm />
           <div className={style.profile}>
             <Typography
               className={style.profileName}
