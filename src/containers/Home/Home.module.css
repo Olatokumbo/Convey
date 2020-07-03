@@ -1,0 +1,31 @@
+.main{
+    /* position: absolute; */
+    right: 0;
+    left: 0;
+    bottom: 0;
+    height: 100%;
+    overflow: hidden;
+    /* background-color: #6d6d6d; */
+}
+.container {
+  display: flex !important;
+  flex-direction: row !important;
+  height: inherit !important;
+  padding: 1rem !important;
+}
+
+.left {
+  flex: 2 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  margin: 0 0.5rem !important ;
+  /* padding: 0 2rem !important; */
+}
+.right {
+  flex: 1 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  margin: 0 0.5rem !important ;
+}
+/* 
+@media only screen and (max-width) */
