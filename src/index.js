@@ -5,14 +5,15 @@ import {firebase} from "./firebase/firebase";
 import {Provider} from "react-redux";
 import {createStore, applyMiddleware, combineReducers, compose} from "redux";
 import thunk from "redux-thunk";
-import {authReducer} from "./store/reducers";
+import {authReducer, projectReducer} from "./store/reducers";
 import * as actionCreator from "./store/actions";
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const rootReducer =combineReducers({
-    auth: authReducer
-}) 
+    auth: authReducer,
+    project: projectReducer
+}); 
 const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk)));
 
 firebase.auth().onAuthStateChanged((user)=>{

@@ -10,7 +10,10 @@ import {
   TextField
 } from "@material-ui/core";
 import AddCircleOutlinedIcon from '@material-ui/icons/AddCircleOutlined';
-const AddProjectForm = () => {
+import {connect} from "react-redux";
+import * as actionCreator from "../../store/actions";
+
+const AddProjectForm = ({createProject}) => {
     
   const [open, setOpen] = React.useState(false);
   const handleClickOpen = () => {
@@ -25,6 +28,7 @@ const AddProjectForm = () => {
       let title = e.target.elements.title.value;
       let content = e.target.elements.content.value;
       console.log(title, content);
+      createProject({title, content});
   }
   return (
     <div>
@@ -61,4 +65,10 @@ const AddProjectForm = () => {
   );
 };
 
-export default AddProjectForm;
+const mapDispatchToProps = (dispatch) => {
+    return {
+        createProject: (data)=>dispatch(actionCreator.createProject(data))
+    }
+}
+
+export default connect(null, mapDispatchToProps)(AddProjectForm);

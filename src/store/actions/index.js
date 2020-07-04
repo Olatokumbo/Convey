@@ -5,3 +5,8 @@ export{
     loginUser,
     logoutUser
 } from "./auth";
+
+export{
+    getProject,
+    createProject
+} from "./project"
