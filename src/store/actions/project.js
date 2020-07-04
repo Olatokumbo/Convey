@@ -11,7 +11,7 @@ export const createProject = (project) =>{
         firestore.collection("projects").add({
             ...projectData
         }).then((data)=>{
-            console.log(data);
+            // console.log(data);
             dispatch({type: actionTypes.CREATE_PROJECT, data: {id: data.id, ...projectData}})
         })
     }
@@ -22,7 +22,7 @@ export const getProject = () =>{
         const array = [];
         firestore.collection("projects").get().then((snapshot)=>{
             snapshot.forEach((doc) => {
-                console.log(`${doc.id} => ${doc.data()}`);
+                // console.log(`${doc.id} => ${doc.data()}`);
                 array.push({id: doc.id, ...doc.data()})
              });
             dispatch({type: actionTypes.GET_PROJECT, data: array})

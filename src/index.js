@@ -21,11 +21,9 @@ ReactDOM.render(<div style={{display: "flex", justifyContent: "center", alignIte
 firebase.auth().onAuthStateChanged((user)=>{
     ReactDOM.render(<Provider store={store}><App/></Provider>, document.getElementById("root"));
     if(user){
-        console.log(user.uid);
         store.dispatch(actionCreator.loginUser(user.uid));
     }
     else{
-        console.log("logout");
         store.dispatch(actionCreator.logoutUser());
     }
 });
