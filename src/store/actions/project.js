@@ -3,12 +3,16 @@ import * as actionTypes from "./actionTypes";
 
 export const createProject = (project) =>{
     return (dispatch)=>{
-        firestore.collection("projects").add({
+        const projectData = {
             authorFirstName: "David",
             authorLastName: "Odesola",
             ...project
+        };
+        firestore.collection("projects").add({
+            ...projectData
         }).then((data)=>{
-            dispatch({type: actionTypes.CREATE_PROJECT, data })
+            console.log(data);
+            dispatch({type: actionTypes.CREATE_PROJECT, data: {id: data.id, ...projectData}})
         })
     }
 };

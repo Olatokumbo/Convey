@@ -29,6 +29,7 @@ const AddProjectForm = ({createProject}) => {
       let content = e.target.elements.content.value;
       console.log(title, content);
       createProject({title, content});
+      handleClose();
   }
   return (
     <div>
