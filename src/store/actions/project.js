@@ -25,6 +25,7 @@ export const getProject = () =>{
                 // console.log(`${doc.id} => ${doc.data()}`);
                 array.push({id: doc.id, ...doc.data()})
              });
+        }).then(()=>{
             dispatch({type: actionTypes.GET_PROJECT, data: array})
         })
     }

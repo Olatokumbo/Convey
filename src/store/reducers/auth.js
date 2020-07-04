@@ -2,6 +2,8 @@ import * as actionTypes from "../actions/actionTypes";
 const initialState = {
   authError: null,
   uid: null,
+  firstName:null,
+  lastName: null
 };
 
 const authReducer = (state = initialState, action) => {

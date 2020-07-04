@@ -1,4 +1,4 @@
-import {firebase} from "../../firebase/firebase";
+import firestore, {firebase} from "../../firebase/firebase";
 import * as actionTypes from "./actionTypes";
 export const startLogin = (credentials) =>{
     return (dispatch) =>{ 
@@ -19,11 +19,19 @@ export const startSignup = (credentials) =>{
             credentials.email, credentials.password)
             .then((data)=>{
             console.log(data)
+            firestore.collection("users").doc(data.user.uid).set({
+                firstName: credentials.firstName,
+                lastName: credentials.lastName,
+                email: credentials.email
+            })
+        }).then(()=>{
             dispatch({ type: actionTypes.SIGNUP_SUCCESS });
+        }).catch((err)=>{
+            dispatch({ type: actionTypes.SIGNUP_FAILED, err });
         })
-        .catch((err)=>{dispatch({ type: actionTypes.SIGNUP_FAILED, err });})
     }
 }
+
 
 export const startLogout = () =>{
     return (dispatch) =>{

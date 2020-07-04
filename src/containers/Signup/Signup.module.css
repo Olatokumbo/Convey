@@ -98,10 +98,6 @@
     text-decoration: none;
 }
 
-.password{
-    display: flex;
-
-}
 @media only screen and (max-width: 773px) {
 .left{
     display: none;

@@ -8,10 +8,12 @@ import * as actionCreator from "../../store/actions";
 const Signup = ({signUp, authError}) => {
   const signUpForm = (e) =>{
       e.preventDefault();
+      let firstName = e.target.elements.firstName.value;
+      let lastName = e.target.elements.lastName.value
       let email = e.target.elements.email.value;
       let password = e.target.elements.password.value;
       // console.log(email, password)
-      signUp({email, password});
+      signUp({firstName, lastName, email, password});
   } 
   return (
     <div className={style.main}>
@@ -24,14 +26,11 @@ const Signup = ({signUp, authError}) => {
       <Typography className={style.divider} variant="body1" color="textSecondary">Or</Typography>
         <form className={style.form} onSubmit={signUpForm}>
             <div className={style.name}>
-                {/* <TextField className={style.input} type="text" label="Name" variant="outlined" size="small" /> */}
-                { /*<TextField className={style.input} type="text" label="Username" variant="outlined" size="small" /> */}
+                <TextField name="firstName" className={style.input} type="text" label="First Name" variant="outlined" size="small" required />
+                <TextField name="lastName" className={style.input} type="text" label="Last Name" variant="outlined" size="small" required/>
             </div>
-          <TextField name="email" className={style.input} type="email" label="Email" variant="outlined" size="small"/>
-            <div className={style.password}>
-                <TextField name="password" className={style.input} type="password" label="Password" variant="outlined" size="small"/>
-                {/* <TextField className={style.input} type="password" label="Retype Password" variant="outlined" size="small"/> */}
-            </div>
+          <TextField name="email" className={style.input} type="email" label="Email" variant="outlined" size="small" required />
+          <TextField name="password" className={style.input} type="password" label="Password" variant="outlined" size="small" required />
           <Button type="submit" className={style.signup} variant="contained">Sign up</Button>
         </form>
         <Typography variant="body2" color="secondary" align="center">{authError}</Typography>
