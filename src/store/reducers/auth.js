@@ -2,8 +2,7 @@ import * as actionTypes from "../actions/actionTypes";
 const initialState = {
   authError: null,
   uid: null,
-  firstName:null,
-  lastName: null
+  displayName: null
 };
 
 const authReducer = (state = initialState, action) => {
@@ -25,6 +24,8 @@ const authReducer = (state = initialState, action) => {
       return {
         ...state,
         authError: null,
+        uid: action.uid,
+        displayName: action.displayName
       };
     case actionTypes.SIGNUP_FAILED:
       console.log("SIGNUP FAILED");
@@ -43,8 +44,7 @@ const authReducer = (state = initialState, action) => {
       return {
         ...state,
         uid: action.uid,
-        firstName: action.user.firstName,
-        lastName: action.user.lastName
+        displayName: action.displayName
       };
     case actionTypes.LOGOUT_USER:
       console.log("LOGOUT USER");

@@ -1,12 +1,14 @@
-import firestore from "../../firebase/firebase";
+import firestore, {firebase} from "../../firebase/firebase";
 import * as actionTypes from "./actionTypes";
 
 export const createProject = (project) =>{
     return (dispatch)=>{
+        var user = firebase.auth().currentUser;
         const projectData = {
-            authorFirstName: "David",
-            authorLastName: "Odesola",
-            ...project
+            ...project,
+            displayName: user.displayName,
+            authorId: user.uid,
+            createdAt: new Date()
         };
         firestore.collection("projects").add({
             ...projectData

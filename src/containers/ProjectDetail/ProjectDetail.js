@@ -11,7 +11,7 @@ const ProjectDetail = ({project}) => {
         <Typography variant="h5" gutterBottom>{project[0].title}</Typography>
         <Typography variant="body1" gutterBottom component="p">{project[0].content}</Typography>
         <Divider />
-        <Typography variant="body2" color="textSecondary" component="p">{`Posted by ${project[0].authorFirstName} ${project[0].authorLastName}`}</Typography> 
+        <Typography variant="body2" color="textSecondary" component="p">{`Posted by ${project[0].displayName}`}</Typography> 
         <Typography variant="body2" color="textSecondary" component="p">Createdby</Typography>
         </CardContent>
         </Grid>

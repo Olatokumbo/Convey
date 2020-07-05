@@ -22,7 +22,7 @@ firebase.auth().onAuthStateChanged((user)=>{
     ReactDOM.render(<Provider store={store}><App/></Provider>, document.getElementById("root"));
     if(user){
         // console.log(user)
-        store.dispatch(actionCreator.loginUser(user.uid));
+        store.dispatch(actionCreator.loginUser({uid: user.uid, displayName: user.displayName}));
     }
     else{
         store.dispatch(actionCreator.logoutUser());

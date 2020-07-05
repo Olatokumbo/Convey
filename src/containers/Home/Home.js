@@ -22,7 +22,8 @@ const Home = ({ getProject, readProjects }) => {
               <ProjectCard
                 key={data.id}
                 title={data.title}
-                author={`${data.authorFirstName} ${data.authorLastName}`}
+                author={`${data.displayName}`}
+                createdAt={data.createdAt}
               />
             </Link>
           ))}

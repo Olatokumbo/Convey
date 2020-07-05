@@ -7,7 +7,7 @@ import * as actionCreator from "../../store/actions";
 import AddProjectForm from "../AddProjectForm/AddProjectForm";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-const Navbar = ({ logout, firstName, lastName }) => {
+const Navbar = ({ logout, displayName }) => {
   const [anchorEl, setAnchorEl] = useState(null);
 
   const handleClick = (event) => {
@@ -37,7 +37,7 @@ const Navbar = ({ logout, firstName, lastName }) => {
               variant="body2"
               color="inherit"
             >
-              {`${firstName} ${lastName}`}
+              {displayName}
             </Typography>
             <img
               className={style.profileImage}
@@ -67,8 +67,7 @@ const Navbar = ({ logout, firstName, lastName }) => {
 
 const mapStateToProps = (state) =>{
   return{
-    firstName: state.auth.firstName,
-    lastName: state.auth.lastName 
+    displayName: state.auth.displayName
   }
 }
 

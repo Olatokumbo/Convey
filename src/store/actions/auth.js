@@ -1,4 +1,4 @@
-import firestore, {firebase} from "../../firebase/firebase";
+import {firebase} from "../../firebase/firebase";
 import * as actionTypes from "./actionTypes";
 export const startLogin = (credentials) =>{
     return (dispatch) =>{ 
@@ -18,16 +18,15 @@ export const startSignup = (credentials) =>{
         firebase.auth().createUserWithEmailAndPassword(
             credentials.email, credentials.password)
             .then((data)=>{
-            console.log(data)
-            firestore.collection("users").doc(data.user.uid).set({
-                firstName: credentials.firstName,
-                lastName: credentials.lastName,
-                email: credentials.email
+            // console.log(data)
+            var user = firebase.auth().currentUser;
+            user.updateProfile({
+                displayName: `${credentials.firstName} ${credentials.lastName}`
+            }).then(()=>{
+                dispatch({ type: actionTypes.SIGNUP_SUCCESS, uid: data.user.uid, displayName: data.user.displayName });
+            }).catch((err)=>{
+                dispatch({ type: actionTypes.SIGNUP_FAILED, err });
             })
-        }).then(()=>{
-            dispatch({ type: actionTypes.SIGNUP_SUCCESS });
-        }).catch((err)=>{
-            dispatch({ type: actionTypes.SIGNUP_FAILED, err });
         })
     }
 }
@@ -41,13 +40,9 @@ export const startLogout = () =>{
     } 
 }
 
-export const loginUser = (uid) =>{
+export const loginUser = (user) =>{
     return(dispatch)=>{
-        firestore.collection("users").doc(uid).get()
-        .then((user)=>{
-            console.log(user.data())
-            dispatch({type: "LOGIN_USER", uid, user:user.data()})
-        })
+        dispatch({type: "LOGIN_USER", uid: user.uid, displayName: user.displayName})
     }
 }
 export const logoutUser = () =>{
