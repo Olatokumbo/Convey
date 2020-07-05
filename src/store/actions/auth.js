@@ -43,7 +43,11 @@ export const startLogout = () =>{
 
 export const loginUser = (uid) =>{
     return(dispatch)=>{
-        dispatch({type: "LOGIN_USER", uid})
+        firestore.collection("users").doc(uid).get()
+        .then((user)=>{
+            console.log(user.data())
+            dispatch({type: "LOGIN_USER", uid, user:user.data()})
+        })
     }
 }
 export const logoutUser = () =>{

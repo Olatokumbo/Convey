@@ -43,6 +43,8 @@ const authReducer = (state = initialState, action) => {
       return {
         ...state,
         uid: action.uid,
+        firstName: action.user.firstName,
+        lastName: action.user.lastName
       };
     case actionTypes.LOGOUT_USER:
       console.log("LOGOUT USER");
