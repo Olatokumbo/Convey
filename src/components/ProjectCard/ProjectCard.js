@@ -9,7 +9,6 @@ const ProjectCard = ({title, author, createdAt}) => {
         <CardContent>
           <Typography variant="h4" gutterBottom>{title}</Typography>
           <Typography variant="body2" color="textSecondary" component="p">Posted by {author}</Typography>
-          <Typography variant="body2" color="textSecondary" component="p">createdAt: </Typography>
         </CardContent>
       </Grid>
     </div>

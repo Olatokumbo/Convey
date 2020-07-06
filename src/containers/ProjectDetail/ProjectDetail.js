@@ -12,7 +12,6 @@ const ProjectDetail = ({project}) => {
         <Typography variant="body1" gutterBottom component="p">{project[0].content}</Typography>
         <Divider />
         <Typography variant="body2" color="textSecondary" component="p">{`Posted by ${project[0].displayName}`}</Typography> 
-        <Typography variant="body2" color="textSecondary" component="p">Createdby</Typography>
         </CardContent>
         </Grid>
       </Grid>
