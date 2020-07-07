@@ -9,4 +9,8 @@ export{
 export{
     getProject,
     createProject
-} from "./project"
+} from "./project";
+
+export {
+    getNotification
+} from "./notif";

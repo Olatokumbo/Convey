@@ -11,3 +11,6 @@ export const LOGOUT = "LOGOUT";
 export const GET_PROJECT = "GET_PROJECT";
 export const CREATE_PROJECT = "CREATE_PROJECT";
 export const CREATE_PROJECT_ERROR = "CREATE_PROJECT_ERROR"; 
+
+//Notifications Action-types
+export const FETCH_NOTIFICATION = "FETCH_NOTIFICATION";

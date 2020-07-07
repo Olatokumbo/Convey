@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { AppBar, Toolbar, Typography, Menu, MenuItem } from "@material-ui/core";
 import style from "./Navbar.module.css";
-import profile from "../../assets/images/davidO.jpg";
+import profile from "../../assets/images/default.jpg";
 import logo from "../../assets/images/logo.png";
 import * as actionCreator from "../../store/actions";
 import AddProjectForm from "../AddProjectForm/AddProjectForm";
@@ -24,10 +24,11 @@ const Navbar = ({ logout, displayName }) => {
           <Link style={{ textDecoration: "none" }} to="/home">
             <img className={style.logo} src={logo} alt="logo" />
           </Link>
-          <input
+          { /*<input
             className={style.searchInput}
             placeholder="Search in Convey..."
-          />
+          /> */}
+        <Typography variant="h5" className={style.name}>Convey</Typography>
         </div>
         <div className={style.utility}>
           <AddProjectForm />
@@ -54,9 +55,7 @@ const Navbar = ({ logout, displayName }) => {
               open={Boolean(anchorEl)}
               onClose={handleClose}
             >
-              <MenuItem onClick={handleClose}>Profile</MenuItem>
-              <MenuItem onClick={handleClose}>Settings</MenuItem>
-              <MenuItem onClick={logout}>Logout</MenuItem>
+            <MenuItem onClick={logout}>Logout</MenuItem>
             </Menu>
           </div>
         </div>

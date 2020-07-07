@@ -5,7 +5,7 @@ import {firebase} from "./firebase/firebase";
 import {Provider} from "react-redux";
 import {createStore, applyMiddleware, combineReducers, compose} from "redux";
 import thunk from "redux-thunk";
-import {authReducer, projectReducer} from "./store/reducers";
+import {authReducer, projectReducer, notifReducer} from "./store/reducers";
 import {CircularProgress} from "@material-ui/core";
 import * as actionCreator from "./store/actions";
 
@@ -13,7 +13,8 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const rootReducer =combineReducers({
     auth: authReducer,
-    project: projectReducer
+    project: projectReducer,
+    notif: notifReducer
 }); 
 const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk)));
 
